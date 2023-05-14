@@ -1,0 +1,105 @@
+// * {
+//   margin: 0px;
+//   padding: 0;
+//   box-sizing: border-box;
+// }
+// input {
+//   width: 30%;
+//   border: 1px solid burlywood;
+//   outline: none;
+//   margin: 20px 10px;
+//   padding: 10px;
+//   border-radius: 10px;
+//   &:focus-within {
+//     box-shadow: 0px 0px 7px rgba(68, 64, 64, 0.7);
+//   }
+// }
+// button {
+//   cursor: pointer;
+//   padding: 5px;
+//   margin: 10px;
+//   border-radius: 5px;
+// }
+// table {
+//   margin: 20px 10%;
+//   width: 80%;
+//   border-radius: 10px;
+//   th {
+//     padding: 10px;
+//     border-radius: 10px;
+//   }
+//   td {
+//     text-align: center;
+//   }
+// }
+
+// .inputt {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+table th,
+table td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 2px 40px;
+  color: darkcyan;
+  background-color: burlywood;
+}
+
+.tableWrap {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table th {
+  color: black;
+}
+
+table {
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+input {
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.addForm button {
+  width: 100px;
+  padding: 5px;
+  color: white;
+  background-color: aqua;
+}
+
+.addForm button:hover {
+  cursor: pointer;
+  background-color: cadetblue;
+}
+
+.edit,
+.delete {
+  bottom: none;
+  padding: 7px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.edit {
+  color: white;
+  margin-right: 5px;
+  background-color: blue;
+}
+.edit:hover {
+  background-color: rgb(7, 7, 72);
+}
+.delete {
+  color: white;
+  background-color: red;
+}
+.delete:hover {
+  background-color: rgb(108, 8, 8);
+}
