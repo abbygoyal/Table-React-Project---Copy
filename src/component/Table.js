@@ -33,7 +33,11 @@ function Table() {
                     >
                       Edit
                     </button>
-                    <button type="button" className="delete">
+                    <button
+                      type="button"
+                      className="delete"
+                      onClick={() => handleDelete(current.id)}
+                    >
                       Delete
                     </button>
                   </td>
@@ -60,6 +64,10 @@ function Table() {
 
   function handleEdit(id) {
     setEditState(id);
+  }
+  function handleDelete(id) {
+    const updatedData = data.filter((d) => id !== d.id);
+    setData(updatedData);
   }
 }
 
