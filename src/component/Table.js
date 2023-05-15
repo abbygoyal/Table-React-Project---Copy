@@ -47,11 +47,15 @@ function Table() {
   );
 
   function handleUpdate(e) {
+    e.preventDefault();
     const name = e.target.elements.name.value;
     const email = e.target.elements.email.value;
     const phone = e.target.elements.phone.value;
-    const updatedData = data.map((d) => d.id === editState);
+    const updatedData = data.map((d) =>
+      d.id === editState ? { ...d, name: name, email: email, phone: phone } : d
+    );
     setEditState(-1);
+    setData(updatedData);
   }
 
   function handleEdit(id) {
