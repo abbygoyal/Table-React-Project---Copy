@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./table.scss";
 import Data from "../component/data.json";
 
 function Table() {
   const [data, setData] = useState(Data);
+  const [editState, setEditState] = useState();
   return (
     <div className="tableWrap">
       <div>
-        <AddMember />
+        <AddMember setData={setData} />
         <table>
           <thead>
             <th>Name</th>
@@ -21,7 +22,9 @@ function Table() {
               <td>{current.email}</td>
               <td>{current.phone}</td>
               <td>
-                <button className="edit">Edit</button>
+                <button className="edit" onClick={handleEdit}>
+                  Edit
+                </button>
                 <button className="delete">Delete</button>
               </td>
             </tr>
@@ -30,9 +33,41 @@ function Table() {
       </div>
     </div>
   );
+  function handleEdit() {}
 }
 
-function AddMember() {
+function EditMember() {
+  return (
+    <tr>
+      <td>
+        <input type="text" name="name" placeholder="Enter Name" ref={nameRef} />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="email"
+          placeholder="Enter Email"
+          ref={emailRef}
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="phone"
+          placeholder="Enter Phone"
+          ref={phoneRef}
+        />
+      </td>
+      <button type="submit">Update</button>
+    </tr>
+  );
+}
+
+function AddMember({ setData }) {
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const phoneRef = useRef();
+
   function handleValues(event) {
     event.preventDefault();
     const name = event.target.elements.name.value;
@@ -44,12 +79,26 @@ function AddMember() {
       email,
       phone,
     };
+    setData((prevData) => prevData.concat(newMember));
+    nameRef.current.value = "";
+    emailRef.current.value = "";
+    phoneRef.current.value = "";
   }
   return (
     <form className="addForm" onSubmit={handleValues}>
-      <input type="text" name="name" placeholder="Enter Name" />
-      <input type="text" name="email" placeholder="Enter Email" />
-      <input type="text" name="phone" placeholder="Enter Phone" />
+      <input type="text" name="name" placeholder="Enter Name" ref={nameRef} />
+      <input
+        type="text"
+        name="email"
+        placeholder="Enter Email"
+        ref={emailRef}
+      />
+      <input
+        type="text"
+        name="phone"
+        placeholder="Enter Phone"
+        ref={phoneRef}
+      />
       <button>Add</button>
     </form>
   );
