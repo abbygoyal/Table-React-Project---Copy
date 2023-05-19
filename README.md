@@ -4,7 +4,7 @@ React Table Project
 
 ## Live Project Link
 
-[Redux Counter App](https://)
+[React Table App](https://)
 
 # How to fork and clone
 
